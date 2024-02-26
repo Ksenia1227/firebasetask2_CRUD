@@ -6,9 +6,10 @@ import 'package:task2/models/models.dart';
 
 
 class ToDoPage extends StatelessWidget {
-  const ToDoPage({super.key,required this.todoId});
+  const ToDoPage({super.key,required this.todoId, required this.todo});
   
   final String todoId;
+  final Todo todo;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +47,10 @@ class ToDoPage extends StatelessWidget {
                     height: 40,
                   ),
                   ElevatedButton(onPressed: (){
-                    Todo todo = Todo( task:_textEditingController.text,
+                    Todo updatetodo = todo.copyWith( task:_textEditingController.text,
                     isDone: false,
-                    createdOn: Timestamp.now(),
                     updatedOn: Timestamp.now());
-                    databaseService.updateTodo(todoId,todo);
+                    databaseService.updateTodo(todoId,updatetodo);
                     Navigator.pop(context);
                     _textEditingController.clear();
                   }

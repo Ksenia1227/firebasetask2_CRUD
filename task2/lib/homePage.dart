@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [ 
                             IconButton(
                                 onPressed: () {Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ToDoPage(todoId: todoId)));},
+              context, MaterialPageRoute(builder: (context) => ToDoPage(todoId: todoId,todo: todo,)));},
                                 icon: const Icon(Icons.edit)),
                                 IconButton(
                                   onPressed: () {
